@@ -198,6 +198,18 @@ def receive_message():
 
 
 # ============================================================
+# ENDPOINT TEST — Voir la réponse du LLM directement
+# ============================================================
+@app.route("/test", methods=["POST"])
+def test_bot():
+    """Test le bot sans Messenger — retourne la réponse directement."""
+    data = request.get_json()
+    message = data.get("message", "Bonjour")
+    response = get_groq_response("test_user", message)
+    return jsonify({"question": message, "reponse": response}), 200
+
+
+# ============================================================
 # PAGE D'ACCUEIL (test)
 # ============================================================
 @app.route("/", methods=["GET"])
