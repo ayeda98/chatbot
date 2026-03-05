@@ -67,7 +67,7 @@ def get_groq_response(user_id, user_message):
     
     try:
         response = client.chat.completions.create(
-            model="llama3-70b-8192",  # Modèle gratuit Groq
+            model="llama-3.3-70b-versatile",  # Modèle gratuit Groq (2025)
             messages=[
                 {"role": "system", "content": SYSTEM_PROMPT},
                 *recent_history
